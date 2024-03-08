@@ -45,7 +45,15 @@ public class Settings {
      * Specify max size of a log file
      */
     public static final String LOG_FILE_SIZE_MB = "logFileSizeMB";  
-    
+    /**
+     * Specify max duration of storage in a directory of the backup log file
+     */
+    public static final String LOG_FILE_DURATION_J = "logFileDurationJ";
+    /**
+     * Specify the directory in which logs file are backup after duration saving
+     * @{link org.obi.services.util.Settings#LOG_FILE_SIZE_MB}
+     */
+    public static final String LOG_FILE_STORAGE_PATH = "logFileStoragePath";
 
     /**
      * Cette méthod permet de créer un fichier de préférence ini
@@ -189,6 +197,8 @@ public class Settings {
             ini.put(Settings.CONFIG, Settings.URL_ZEN, "jdbc:sqlserver:");
             
             ini.put(Settings.CONFIG, Settings.LOG_FILE_SIZE_MB, 1);
+            ini.put(Settings.CONFIG, Settings.LOG_FILE_DURATION_J, 7);
+            ini.put(Settings.CONFIG, Settings.LOG_FILE_STORAGE_PATH, "./logs");
 
             ini.store();
         } catch (IOException ex) {
